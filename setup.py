@@ -6,7 +6,7 @@ if not sys.version_info[0] == 3:
 
 setuptools.setup(
     name='pyapt',
-    version='0.0.1',
+    version='0.0.2',
     description='module to help you maintain third party apt repos in a sane way',
     long_description='module to help you maintain third party apt repos in a sane way',
     url='https://veltzer.github.io/pyapt',
@@ -26,7 +26,7 @@ setuptools.setup(
     ],
     entry_points={
         'console_scripts': [
-            'pyapt_update=pyawskit.scripts.update:main',
+            'pyapt_update=pyapt.scripts.update:main',
         ],
     },
 )
