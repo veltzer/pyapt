@@ -1,4 +1,5 @@
 import click
+from pylogconf import setup
 
 
 @click.command()
@@ -8,7 +9,6 @@ def main():
     all required package in the list.
     """
     setup()
-    print(get_disks())
 
 
 if __name__ == "__main__":
