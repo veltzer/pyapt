@@ -6,7 +6,7 @@ if not sys.version_info[0] == 3:
 
 setuptools.setup(
     name='pyapt',
-    version='0.0.2',
+    version='0.0.3',
     description='module to help you maintain third party apt repos in a sane way',
     long_description='module to help you maintain third party apt repos in a sane way',
     url='https://veltzer.github.io/pyapt',
@@ -23,6 +23,7 @@ setuptools.setup(
     install_requires=[
         'pylogconf',  # for logging configuration
         'click',  # used for command line parsing
+        'pyfakeuse',  # used for ignoring parameters
     ],
     entry_points={
         'console_scripts': [
