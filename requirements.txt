@@ -1,3 +1,5 @@
 click
 pylogconf
 pyfakeuse
+# development tools
+pypitools
