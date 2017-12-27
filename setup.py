@@ -5,7 +5,7 @@ setuptools.setup(
     version='0.0.3',
     description='module to help you maintain third party apt repos in a sane way',
     long_description='module to help you maintain third party apt repos in a sane way',
-    url='https://github.com/veltzer/pyapt',
+    url='https://veltzer.github.io/pyapt',
     download_url='https://github.com/veltzer/pyapt',
     author='Mark Veltzer',
     author_email='mark.veltzer@gmail.com',
