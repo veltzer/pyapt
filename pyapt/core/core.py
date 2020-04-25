@@ -7,4 +7,5 @@ def read_config():
     data = json.loads(file_name)
     return data
 
-def apply_ppa
+def apply_ppa():
+    pass

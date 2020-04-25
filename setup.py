@@ -22,8 +22,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=[
         'pylogconf',  # for logging configuration
-        'click',  # used for command line parsing
-        'pyfakeuse',  # used for ignoring parameters
+        'pytconf',  # for command line parsing
     ],
     entry_points={
         'console_scripts': [
