@@ -17,8 +17,11 @@
 ![Downloads](https://pepy.tech/badge/pyapt/week)
 
 
+
 module to help you maintain third party apt repos in a sane way
 
 project website: <https://veltzer.github.io/pyapt>
+
+chat with me at [![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/veltzer/mark.veltzer)
 
 
