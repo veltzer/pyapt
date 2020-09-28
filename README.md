@@ -16,6 +16,8 @@
 ![Downloads](https://pepy.tech/badge/pyapt/month)
 ![Downloads](https://pepy.tech/badge/pyapt/week)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/veltzer/pyapt/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/veltzer/pyapt?targetFile=requirements.txt)
+
 
 
 module to help you maintain third party apt repos in a sane way
