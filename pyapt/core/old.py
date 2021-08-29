@@ -12,8 +12,6 @@ import tempfile
 import urllib.request
 import zipfile
 
-import templar.version
-
 # in what folder do we install tools?
 tools = 'tools'
 # do you want to debug this script?
@@ -56,12 +54,12 @@ hide = True
 
 def check_call_print(args):
     if hide:
-        p = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        res_out, res_err = p.communicate()
-        if p.returncode:
-            print(res_out.decode(), file=sys.stderr)
-            print(res_err.decode(), file=sys.stderr)
-            sys.exit(p.returncode)
+        with subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as p:
+            res_out, res_err = p.communicate()
+            if p.returncode:
+                print(res_out.decode(), file=sys.stderr)
+                print(res_err.decode(), file=sys.stderr)
+                sys.exit(p.returncode)
     else:
         subprocess.check_call(args)
 
@@ -251,9 +249,9 @@ def install_closure():
     # create a temp file
     with tempfile.TemporaryFile() as temp_handle:
         # download the zip to the temp file
-        response = urllib.request.urlopen(url)
-        temp_handle.write(response.read())
-        temp_handle.seek(0)
+        with urllib.request.urlopen(url) as response:
+            temp_handle.write(response.read())
+            temp_handle.seek(0)
         # open the zip file
         with zipfile.ZipFile(temp_handle) as zip_file:
             jar_files = list(filter(lambda file_name: file_name.endswith('.jar'), zip_file.namelist()))
@@ -301,12 +299,12 @@ def install_tp():
     if not os.path.isfile('templardefs/jschess.py'):
         return
     sys.path.append(os.getcwd())
-    import templardefs.jschess
+    import config.jschess
     if os.path.isdir(tp):
         shutil.rmtree(tp)
     os.makedirs(tp)
 
-    for dep in templardefs.jschess.deps:
+    for dep in config.jschess.deps:
         print('getting javascript library [{0}]'.format(dep.name))
         if dep.downloadUrl:
             debug(dep.downloadUrl + ',' + dep.myFile)
@@ -368,7 +366,7 @@ def check_version(d):
     if 'python_version_needed' not in d:
         return
     msg('checking python version from deps.py...')
-    templar.version.check_version(d.python_version_needed)
+    # check_version(d.python_version_needed)
 
 
 def install_deps(d):
@@ -388,9 +386,8 @@ def download(url, output_file):
         opener = urllib.request.build_opener()
         opener.addheaders = [('User-agent', 'Mozilla/5.0')]
         response = opener.open(url)
-        f = open(output_file, 'wb')
-        f.write(response.read())
-        f.close()
+        with open(output_file, 'wb') as f:
+            f.write(response.read())
 
 def download_highcharts():
     if not os.path.isdir('download'):
@@ -399,20 +396,18 @@ def download_highcharts():
     download('http://code.highcharts.com/zips/Highcharts-3.0.5.zip', 'download/Highcharts-3.0.5.zip')
     if not os.path.isdir('download/Highcharts'):
         os.mkdir('download/Highcharts')
-        z = zipfile.ZipFile('download/Highcharts-3.0.5.zip', 'r')
-        z.extractall('download/Highcharts')
-        z.close()
+        with zipfile.ZipFile('download/Highcharts-3.0.5.zip', 'r') as z:
+            z.extractall('download/Highcharts')
 
     folder = 'download/extjs'
     file_name = 'ext-4.2.1-gpl.zip'
     url_prefix = 'http://cdn.sencha.com/ext/gpl'
     local_file = os.path.join('download', file_name)
     remote_file = os.path.join(url_prefix, file_name)
-    download(remote_file, local_file) 
+    download(remote_file, local_file)
     if not os.path.isdir(folder):
-        z = zipfile.ZipFile(local_file, 'r')
-        z.extractall('download')
-        z.close()
+        with zipfile.ZipFile(local_file, 'r') as z:
+            z.extractall('download')
     os.rename('download/ext-4.2.1.883', folder)
 
     download('http://veltzer.net/media/sample.ogg', 'download/sample.ogg')
