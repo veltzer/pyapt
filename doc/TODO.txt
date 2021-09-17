@@ -1,4 +1,3 @@
 - make a tool to configure apt source correctly:
 	/etc/apt/sources.list.d/mark.list
-	$DOTS/templardefs/deps.py
 	$DOTS/system_configs/apt/etc/apt/sources.list.d/mark.list

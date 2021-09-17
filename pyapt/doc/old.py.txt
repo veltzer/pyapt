@@ -296,7 +296,7 @@ tp = 'out/web/third_party'
 
 
 def install_tp():
-    if not os.path.isfile('templardefs/jschess.py'):
+    if not os.path.isfile('config/jschess.py'):
         return
     sys.path.append(os.getcwd())
     import config.jschess
