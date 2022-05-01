@@ -57,5 +57,5 @@ setuptools.setup(
     entry_points={"console_scripts": [
         'pyapt_update=pyapt.scripts.update:main',
     ]},
-    python_requires=">=3.7",
+    python_requires=">=3.9",
 )
