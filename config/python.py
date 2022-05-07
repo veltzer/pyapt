@@ -6,7 +6,7 @@ console_scripts = [
     "pyapt_update=pyapt.scripts.update:main",
 ]
 
-run_requires = [
+install_requires = [
     "pytconf",
     "pylogconf",
 ]
