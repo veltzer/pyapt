@@ -5,12 +5,17 @@ package_name = config.project.project_name
 console_scripts = [
     "pyapt_update=pyapt.scripts.update:main",
 ]
-
+dev_requires = [
+    "pyclassifiers",
+    "pypitools",
+    "pydmt",
+    "Sphinx",
+    "pymakehelper",
+]
 install_requires = [
     "pytconf",
     "pylogconf",
 ]
-
 test_requires = [
     "pylint",
     "pytest",
@@ -19,14 +24,7 @@ test_requires = [
     "flake8",
 ]
 
-dev_requires = [
-    "pyclassifiers",
-    "pypitools",
-    "pydmt",
-    "Sphinx",
-    "pymakehelper",
-]
+python_requires = ">=3.10"
 
-python_requires = ">=3.9"
-test_os = ["ubuntu-20.04"]
-test_python = ["3.9"]
+test_os = ["ubuntu-22.04"]
+test_python = ["3.10"]
