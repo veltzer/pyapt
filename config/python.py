@@ -6,11 +6,13 @@ console_scripts = [
     "pyapt_update=pyapt.scripts.update:main",
 ]
 dev_requires = [
-    "pyclassifiers",
     "pypitools",
-    "pydmt",
-    "Sphinx",
+]
+make_requires = [
     "pymakehelper",
+]
+config_requires = [
+    "pyclassifiers",
 ]
 install_requires = [
     "pytconf",
