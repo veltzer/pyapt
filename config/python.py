@@ -5,7 +5,6 @@ console_scripts: List[str] = [
     "pyapt_update=pyapt.scripts.update:main",
 ]
 dev_requires: List[str] = [
-    "pymultigit",
     "pypitools",
     "black",
 ]
