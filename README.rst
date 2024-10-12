@@ -12,6 +12,6 @@ project website: https://veltzer.github.io/pyapt
 
 author: Mark Veltzer
 
-version: 0.0.6
+version: 0.0.7
 
 	Mark Veltzer <mark.veltzer@gmail.com>, Copyright © 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024
