@@ -1,9 +1,8 @@
 """ python deps for this project """
 
-console_scripts: list[str] = [
-    "pyapt_update=pyapt.scripts.update:main",
-]
-
+scripts: dict[str,str] = {
+    "pyapt_update": "pyapt.scripts.update:main",
+}
 config_requires: list[str] = [
     "pyclassifiers",
 ]
