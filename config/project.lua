@@ -5,3 +5,4 @@ KEYWORDS = {
     "apt",
     "apt-key",
 }
+PYPI = true
