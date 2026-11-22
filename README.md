@@ -5,7 +5,7 @@
 
 description: module to help you maintain third party apt repos in a sane way
 
-project website: https://veltzer.github.io/pyapt
+project website: <https://veltzer.github.io/pyapt>
 
 author: Mark Veltzer
 
